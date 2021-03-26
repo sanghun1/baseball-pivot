@@ -34,7 +34,7 @@ public class Team {
 	private Integer id;
 	private String name;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "stadiumId" )
 	@JsonIgnoreProperties({"team"})
 	private Stadium stadium;

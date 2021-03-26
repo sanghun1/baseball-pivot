@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -37,6 +38,9 @@ public class Player {
 	@JoinColumn(name = "teamId")
 	@JsonIgnoreProperties({"players"})
 	private Team team;
+	
+	@Transient
+	private int teamId;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
